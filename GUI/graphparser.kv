@@ -1,0 +1,25 @@
+AppRoot:
+
+<AppRoot>:
+    orientation: 'vertical'
+    padding: root.width * .02, root.height * .02
+    spacing: 10
+    Label:
+        text: "Pick a file to start processing"
+    Button:
+        text: "Select PDF"
+        size_hint_y: None
+        height: root.height * .1
+        on_release: root.change_to_img_picker()
+
+<ImagePicker>:
+    orientation: 'vertical'
+    id: img_picker
+    FileChooserListView:
+        id: filechooser
+        on_selection: root.selected(filechooser.selection)
+        size_hint: 1, .9
+    Button:
+        text: "Choose File"
+        on_release: root.open(filechooser.path, filechooser.selection)
+        size_hint: 1, .1
