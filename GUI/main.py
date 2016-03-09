@@ -27,6 +27,7 @@ class ImagePicker(BoxLayout):
     def open(self, path, selection):
         print "OPEN", selection[0]
         os.system("python pdfwidget.py "+selection[0])
+        os.system("pdftocairo -jpeg "+ selection[0]+" "+"image.jpg")
         
 
     def selected(self, selection):
